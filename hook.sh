@@ -7,4 +7,5 @@
 
 CDIR=`dirname "$0"`
 [ -f "$CDIR/teo.conf"] && . "$CDIR/teo.conf"
+[ "x$LIBRARY_DIRECTORY" == "x" ] && LIBRARY_DIRECTORY="$TR_TORRENT_DIR"
 [ "x$TR_TORRENT_NAME" != "x" ] && $CDIR/run.sh "$TR_TORRENT_DIR/$TR_TORRENT_NAME" "$LIBRARY_DIRECTORY"

@@ -1,6 +1,5 @@
-### tv-episodes-orgnizer
-
 Organize your downloaded TV episodes. 美剧整理器
+-----------------------------------------------
 
 Move your downloaded TV episodes into your media library directory with a easy-understanding sub-directory structure.
 
@@ -51,8 +50,24 @@ And when you have downloaed many episodes after seasons, it will like this (only
 You can hook this script into your transmission-daemon. When torrent downloaded, the script will automatically move the TV episodes into their proper directory.
 (NOTICE: It will no longer working as an active seed after moving)
 
-### Version history
+How to use
+----------
+
+* Manually move a episode, or orginze an exist library directory
+
+     run.sh tv_episode_directory_or_file library_directory
+
+* Hook into current transmission-daemon
+
+  run
+
+     install.sh
+
+  and follow the instructions.
+
+Version history
+---------------
 
 v0.9 2015.08.21
 
-+ Initial release
+* Initial release
