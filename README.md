@@ -6,11 +6,11 @@ Move your downloaded TV episodes into your media library directory with a easy-u
 
 For example, when you downloaded a TV episode like this:
 
-Your.Donwload.Directory
-`----A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME
-     |---A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME.mkv
-     |---A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME.srt
-     `---story.nfo
+     Your.Donwload.Directory
+     `----A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME
+          |---A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME.mkv
+          |---A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME.srt
+          `---story.nfo
 
 this script will move this episode into your media library directory. (and make some neccessary directories.) Then it will be like this:
 
