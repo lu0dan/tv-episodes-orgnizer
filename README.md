@@ -3,7 +3,7 @@ Organize your downloaded TV episodes. 美剧整理器
 
 Move your downloaded TV episodes into your media library directory with a easy-understanding sub-directory structure.
 
-For example, when you downloaded a TV episode like this:
+For example, when you have downloaded a TV episode like this:
 
      Your.Donwload.Directory
      `----A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME
@@ -11,7 +11,7 @@ For example, when you downloaded a TV episode like this:
           |---A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME.srt
           `---story.nfo
 
-this script will move this episode into your media library directory. (and make some neccessary directories.) Then it will be like this:
+this script will move this episode into your media library directory. (and make some neccessary directories.) Then it will be look like this:
 
      Your.Media.Library.Directory
      `----A.Si-Fi.Story
@@ -21,7 +21,7 @@ this script will move this episode into your media library directory. (and make 
                     |---A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME.srt
                     `---story.nfo
 
-And when you have downloaed many episodes after seasons, it will like this (only shows directories):
+And when you have downloaed many episodes after seasons, it will be look like this: (only shows directories)
 
      Your.Media.Library.Directory
      |----A.Si-Fi.Story
@@ -47,8 +47,8 @@ And when you have downloaed many episodes after seasons, it will like this (only
                |----A.Sit-Com.Story.S02E03.720p.HDTV.GROUPNAME
                `----A.Sit-Com.Story.S02E04.720p.HDTV.GROUPNAME
 
-You can hook this script into your transmission-daemon. When torrent downloaded, the script will automatically move the TV episodes into their proper directory.
-(NOTICE: It will no longer working as an active seed after moving)
+You can hook this script into your transmission-daemon. Afterwards, when torrent downloaded, the script will automatically move the TV episodes into their proper directory.
+(NOTICE: It will no longer work as an active seed after moving.)
 
 How to use
 ----------
