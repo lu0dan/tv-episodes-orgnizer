@@ -59,11 +59,7 @@ How to use
 
 * Hook into current transmission-daemon
 
-  run
-
-     install.sh
-
-  and follow the instructions.
+  run install.sh and follow the instructions.
 
 Version history
 ---------------
