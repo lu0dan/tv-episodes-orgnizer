@@ -21,7 +21,7 @@ this script will move this episode into your media library directory. (and make 
                     |---A.Si-Fi.Story.S02E04.720p.HDTV.GROUPNAME.srt
                     `---story.nfo
 
-And when you have downloaed many episodes after seasons, it will be look like this: (only shows directories)
+And when you have downloaded many episodes after seasons, it will be look like this: (only shows directories)
 
      Your.Media.Library.Directory
      |----A.Si-Fi.Story
