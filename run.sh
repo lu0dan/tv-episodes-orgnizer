@@ -3,7 +3,7 @@
 # TV Episodes Orgnizer
 # by luodan@gmail.com
 #
-# v0.9 2015.08.21
+# v0.9.1 2015.08.22
 # -------------------------
 
 is_video(){
@@ -64,13 +64,17 @@ process(){
 	fi
 }
 
-
+CDIR=`dirname "$0"`
 TARGET="$1"
-LIBRARY_DIRECTORY="$2"
-[ -d "$TARGET" ] && TARGET=`dirname "$TARGET/enigma"`
-TARGET=`cd "$TARGET"; pwd`
+if [ -d "$TARGET" ]; then
+	TARGET=`dirname "$TARGET/enigma"`
+	TARGET=`cd "$TARGET"; pwd`
+elif [ ! -f "$TARGET" ]; then
+	echo "ERROR: $TARGET is not a file nor a directory."
+fi
 
-[ "x$LIBRARY_DIRECTORY" == "x" -o ! -d "$LIBRARY_DIRECTORY" -o ! -w "$LIBRARY_DIRECTORY" ] && echo Library directory not exists or not accessable. && exit 1
+[ -f "$CDIR/teo.conf" ] && . "$CDIR/teo.conf"
+[ "x$LIBRARY_DIRECTORY" == "x" -o ! -d "$LIBRARY_DIRECTORY" -o ! -w "$LIBRARY_DIRECTORY" ] && echo Library directory not exists or not accessable. Please check teo.conf && exit 1
 LIBRARY_DIRECTORY=`cd "$LIBRARY_DIRECTORY"; pwd`
 
 process "$TARGET"
