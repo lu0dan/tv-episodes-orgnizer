@@ -64,6 +64,10 @@ How to use
 Version history
 ---------------
 
+v0.9.2
+
+* fix bug for not processing file globbing
+
 v0.9.1 2015.08.22
 
 * update tranmission installation script

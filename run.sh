@@ -3,7 +3,7 @@
 # TV Episodes Orgnizer
 # by luodan@gmail.com
 #
-# v0.9.1 2015.08.22
+# v0.9.2 2015.08.24
 # -------------------------
 
 is_video(){
@@ -27,16 +27,19 @@ split_tvshow(){
 
 move_to_lib(){
 	split_tvshow "$1"
-	[ "$IS_TVSHOW" == "0" ] && echo Not a TV Show directory.
+	[ "$IS_TVSHOW" == "0" ] && echo Not a TV episode file or directory.
 	TARGET_DIR="$LIBRARY_DIRECTORY/$TITLE/Season.$SEASON/"
-#	echo Moving \""$1"\" to \""$TARGET_DIR"\"
+	echo "Moving $1"
+	echo "    to $TARGET_DIR"
 	mkdir -p "$TARGET_DIR"
 	mv "$1" "$TARGET_DIR"
 }
 
 process(){
 	local FORD="$1"
-	BFORD=`basename "$1"`
+	[ -d "$FORD" ] && FORD=`cd "$FORD"; pwd`
+		
+	BFORD=`basename "$FORD"`
 	[ "${BFORD:0:1}" == "." -o "${BFORD:0:1}" == "@" ] && echo "Skipping $BFORD" && return
 
 	if [ -f "$FORD" ]; then
@@ -45,9 +48,9 @@ process(){
 		elif is_tvshow "$FORD"; then
 			move_to_lib "$FORD"
 		else
-			echo Skipping file "$FORD"
+			echo Skipping file "$BFORD"
 		fi
-	else
+	elif [ -d "$FORD" ]; then
 		if is_tvshow "$FORD"; then
 			move_to_lib "$FORD"
 		else
@@ -61,20 +64,18 @@ process(){
 				rm -rf "$FORD"
 			fi
 		fi
+	else
+		echo Skipping unknown file "$BFORD"
 	fi
 }
 
 CDIR=`dirname "$0"`
-TARGET="$1"
-if [ -d "$TARGET" ]; then
-	TARGET=`dirname "$TARGET/enigma"`
-	TARGET=`cd "$TARGET"; pwd`
-elif [ ! -f "$TARGET" ]; then
-	echo "ERROR: $TARGET is not a file nor a directory."
-fi
-
 [ -f "$CDIR/teo.conf" ] && . "$CDIR/teo.conf"
 [ "x$LIBRARY_DIRECTORY" == "x" -o ! -d "$LIBRARY_DIRECTORY" -o ! -w "$LIBRARY_DIRECTORY" ] && echo Library directory not exists or not accessable. Please check teo.conf && exit 1
 LIBRARY_DIRECTORY=`cd "$LIBRARY_DIRECTORY"; pwd`
 
-process "$TARGET"
+for ARG in "$@"; do
+	if [ "${ARG:0:1}" != "-" -a "$ARG" != "/" ]; then
+		process "$ARG"
+	fi
+done
